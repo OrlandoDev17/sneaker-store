@@ -1,22 +1,35 @@
+---
+import '@/styles/global.css';
+import Header from '../components/Header.astro';
+
+import '@fontsource-variable/montserrat';
+import '@fontsource-variable/rubik';
+
+import ClientRouter from 'astro/components/ClientRouter.astro';
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+    <title>SneakerStore | La mejor web de venta de Sneakers</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+  <ClientRouter />
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fefefe;
+    font-family: 'Montserrat Variable';
+  }
 </style>

@@ -1,0 +1,25 @@
+---
+import { shoes } from '@/consts/shoes';
+import Layout from '@/layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return shoes.map((shoe) => ({
+    params: { id: shoe.id },
+  }));
+}
+
+const { id } = Astro.params;
+
+const shoe = shoes.find((shoe) => shoe.id === id);
+if (!shoe) return Astro.redirect('/');
+---
+
+<Layout>
+  <div class="flex items-center justify-center">
+    <img
+      src={shoe.images[0]}
+      alt={`imagen del zapato ${shoe.name}`}
+      transition:name={`shoe-image-${shoe.id}`}
+    />
+  </div>
+</Layout>

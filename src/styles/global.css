@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-rubik: 'Rubik Variable';
+
+  --color-primary: #222222;
+  --color-special: #15d413;
+  --color-light: #ededed;
+}

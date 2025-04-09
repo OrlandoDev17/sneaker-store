@@ -1,0 +1,44 @@
+---
+import User from '@/icons/User.astro';
+
+const NAV_LINKS = [
+  {
+    label: 'Novedades',
+    href: '/novedades',
+  },
+  {
+    label: 'Mas Vendidos',
+    href: '/mas-vendidos',
+  },
+];
+---
+
+<header
+  class="flex justify-between items-center py-3 mx-16 border-b-3 border-black/20"
+>
+  <a href="/">
+    <img class="w-64" src="./logo.svg" alt="Logo de SneakerStore" />
+  </a>
+  <nav class="flex gap-x-16">
+    {
+      NAV_LINKS.map((link) => (
+        <a
+          class="uppercase font-rubik font-semibold tracking-wide text-2xl inline-block hover:text-special hover:scale-110 transition"
+          href={link.href}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+  <button>
+    <a class="flex items-center gap-x-3 group" href=" #">
+      <User
+        class="size-14 border-2 p-2 rounded-full inline-block hover:border-special group-hover:text-special hover:scale-110 transition"
+      />
+      <p class="text-xl font-semibold group-hover:text-special transition">
+        Orlando
+      </p>
+    </a>
+  </button>
+</header>
