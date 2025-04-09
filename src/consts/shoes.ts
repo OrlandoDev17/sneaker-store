@@ -89,4 +89,16 @@ export const shoes: Shoe[] = [
       'https://ciconceptstore.com/cdn/shop/files/Copia-de-Diseno-sin-titulo-_4.webp?v=1719061725&width=800',
     ],
   },
+  {
+    id: 'adidas-campus-x-bad-bunny-brown',
+    name: 'Adidas Campus x Bad Bunny - Brown',
+    price: 230,
+    rating: 4.1,
+    maker: 'Adidas',
+    images: [
+      'https://ciconceptstore.com/cdn/shop/products/1_11_5dfc19a7-13b0-499e-8d5d-2c7ef702613a.webp?v=1700492534&width=800',
+      'https://ciconceptstore.com/cdn/shop/files/7_cb120120-bd47-4166-a695-e6afbf55919e.webp?v=1718971818&width=800',
+      'https://ciconceptstore.com/cdn/shop/files/Copia-de-Diseno-sin-titulo-_3.webp?v=1719061060&width=800',
+    ],
+  },
 ] as const;
