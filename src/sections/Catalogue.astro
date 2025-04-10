@@ -1,0 +1,38 @@
+---
+import Shoes from '@/components/Shoes.astro';
+import Cart from '@/icons/Cart.astro';
+
+const BUTTON_LABELS = ['Todos', 'Nike', 'Adidas', 'Jordan', 'Yeezy'];
+
+import Search from '@/icons/Search.astro';
+---
+
+<section id="catalogue" class="flex flex-col mx-16 mt-8">
+  <div class="flex justify-between mt-4">
+    <aside class="flex gap-4">
+      {
+        BUTTON_LABELS.map((button) => (
+          <button class="bg-light px-4 py-2 rounded-full text-lg text-primary hover:bg-primary hover:text-white transition cursor-pointer active:bg-primary">
+            {button}
+          </button>
+        ))
+      }
+    </aside>
+    <div class="flex items-center gap-6">
+      <div class="relative group">
+        <input
+          type="search"
+          class="absolute w-0 px-4 rounded-2xl h-12 right-15 text-lg group-hover:w-64 group-hover:bg-light transition-all duration-500 outline-none focus:ring-2 focus:ring-primary"
+          placeholder="Buscar..."
+        />
+        <Search
+          class="relative text-primary top-0 cursor-pointer size-12 bg-light p-2 rounded-full hover:outline-2 hover:outline-primary"
+        />
+      </div>
+      <Cart
+        class="text-primary size-12 bg-light p-2 rounded-full hover:outline-2 hover:outline-primary hover:scale-125 transition-transform"
+      />
+    </div>
+  </div>
+  <Shoes />
+</section>
