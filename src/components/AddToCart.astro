@@ -1,0 +1,44 @@
+---
+const { producto } = Astro.props;
+---
+
+<button
+  id="add-to-cart"
+  class="mt-4 bg-blue-500 py-4 rounded-xl text-white text-xl font-bold
+inline-block cursor-pointer hover:bg-blue-700 hover:-translate-y-1 transition"
+>
+  Añadir al Carrito
+</button>
+
+<script type="module" is:inline>
+  const button = document.getElementById('add-to-cart');
+
+  button?.addEventListener('click', () => {
+    const tallaSeleccionada = localStorage.getItem('talla');
+    const cantidad = parseInt(localStorage.getItem('cantidad') || '0', 10);
+
+    if (!tallaSeleccionada) {
+      alert('Por favor, selecciona una talla 👟');
+      return;
+    }
+
+    if (cantidad <= 0) {
+      alert('Debes seleccionar al menos 1 unidad 🧮');
+      return;
+    }
+
+    const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    carrito.push({
+      ...producto,
+      talla: tallaSeleccionada,
+      cantidad: cantidad,
+    });
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    window.dispatchEvent(new CustomEvent('carrito-actualizado'));
+    alert('Producto añadido al carrito 🛒');
+
+    localStorage.removeItem('talla');
+    localStorage.removeItem('cantidad');
+  });
+</script>

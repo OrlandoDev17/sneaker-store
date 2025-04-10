@@ -1,5 +1,7 @@
 ---
 import User from '@/icons/User.astro';
+import Cart from '@/icons/Cart.astro';
+import CartPanel from './CartPanel.astro';
 
 const NAV_LINKS = [
   {
@@ -31,14 +33,17 @@ const NAV_LINKS = [
       ))
     }
   </nav>
-  <button>
-    <a class="flex items-center gap-x-3 group" href=" #">
-      <User
-        class="size-14 border-2 p-2 rounded-full inline-block hover:border-special group-hover:text-special hover:scale-110 transition"
-      />
-      <p class="text-xl font-semibold group-hover:text-special transition">
-        Orlando
-      </p>
-    </a>
-  </button>
+  <div class="flex gap-4">
+    <CartPanel />
+    <button>
+      <a class="flex items-center gap-x-3 group" href=" #">
+        <User
+          class="size-14 border-2 p-2 rounded-full inline-block hover:border-special group-hover:text-special hover:scale-110 transition"
+        />
+        <p class="text-xl font-semibold group-hover:text-special transition">
+          Orlando
+        </p>
+      </a>
+    </button>
+  </div>
 </header>

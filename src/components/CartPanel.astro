@@ -1,0 +1,43 @@
+---
+import Cart from '@/icons/Cart.astro';
+---
+
+<div>
+  <button id="carrito-boton" class="relative">
+    <Cart
+      class="size-14 border-2 p-2 rounded-full inline-block cursor-pointer hover:border-special hover:text-special hover:scale-110 transition"
+    />
+    <span
+      id="carrito-contador"
+      class="absolute top-0 right-0 bg-red-500 text-white text-sm w-6 rounded-full flex items-center justify-center font-bold translate-x-2"
+    >
+      0
+    </span>
+  </button>
+</div>
+
+<script type="module" is:inline>
+  const contador = document.getElementById('carrito-contador');
+
+  function actualizarContador() {
+    const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    if (contador) {
+      contador.textContent = carrito.length;
+      console.log('🧮 Carrito actualizado. Total:', carrito.length);
+    }
+  }
+
+  actualizarContador();
+
+  window.addEventListener('carrito-actualizado', () => {
+    console.log('📦 Evento recibido: carrito-actualizado');
+    actualizarContador();
+  });
+
+  window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      console.log('👀 Pestaña activa, actualizando contador');
+      actualizarContador();
+    }
+  });
+</script>

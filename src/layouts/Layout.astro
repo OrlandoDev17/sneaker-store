@@ -18,7 +18,9 @@ import ClientRouter from 'astro/components/ClientRouter.astro';
   </head>
   <body>
     <Header />
-    <slot />
+    <main class="flex items-center justify-center h-auto">
+      <slot />
+    </main>
   </body>
   <ClientRouter />
 </html>
