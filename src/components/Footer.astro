@@ -1,3 +1,29 @@
+---
+import Instagram from '@/icons/Instagram.astro';
+import TwitterX from '@/icons/TwitterX.astro';
+import Whatsapp from '@/icons/Whatsapp.astro';
+import Github from '@/icons/Github.astro';
+
+const SOCIAL_MEDIAS = [
+  {
+    icon: Instagram,
+    url: 'https://www.instagram.com/',
+  },
+  {
+    icon: TwitterX,
+    url: 'https://www.x.com/',
+  },
+  {
+    icon: Whatsapp,
+    url: 'wa.me/+584242860846/',
+  },
+  {
+    icon: Github,
+    url: 'https://github.com/OrlandoDev17/sneaker-store',
+  },
+];
+---
+
 <section class="md:w-full bg-gradient-to-b from-white to-blue-200 px-16 mt-18">
   <header class="flex justify-between pt-10">
     <picture>
@@ -9,32 +35,16 @@
       >
         Nuestras Redes
       </h3>
-      <ul class="flex gap-x-8 mt-6">
-        <li
-          class="text-xl tracking-wider hover:scale-125 hover:text-blue-600 transition"
-        >
-          <a href="">Instagram</a>
-        </li>
-        <li
-          class="text-xl tracking-wider hover:scale-125 hover:text-blue-600 transition"
-        >
-          <a href="">Facebook</a>
-        </li>
-        <li
-          class="text-xl tracking-wider hover:scale-125 hover:text-blue-600 transition"
-        >
-          <a href="">Twitter</a>
-        </li>
-        <li
-          class="text-xl tracking-wider hover:scale-125 hover:text-blue-600 transition"
-        >
-          <a href="">Whatsapp</a>
-        </li>
-        <li
-          class="text-xl tracking-wider hover:scale-125 hover:text-blue-600 transition"
-        >
-          <a href="">Telegram</a>
-        </li>
+      <ul class="flex items-center justify-center gap-x-6 mt-6">
+        {
+          SOCIAL_MEDIAS.map(({ icon: Icon, url }) => (
+            <li>
+              <a href={url}>
+                <Icon class="size-13 bg-blue-500 text-white p-1 rounded-2xl hover:bg-blue-700 hover:scale-110 transition" />
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </aside>
   </header>

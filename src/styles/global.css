@@ -1,8 +1,27 @@
 @import 'tailwindcss';
 
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
 @theme {
   --font-rubik: 'Rubik Variable';
 
   --color-primary: #222222;
   --color-light: #ededed;
+}
+
+@custom-variant active (&:where(.active, .active *));
+
+@utility mask-fade-bottom {
+  mask-image: linear-gradient(
+    to bottom,
+    black 10%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+@utility mask-fade-top-bottom {
+  mask-image: linear-gradient(transparent, black 10% 90%, transparent 100%);
 }
