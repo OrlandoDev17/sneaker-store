@@ -101,3 +101,36 @@ export const shoes: Shoe[] = [
     ],
   },
 ] as const;
+
+interface SHOES_INFO {
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
+export const SHOES_INFO: SHOES_INFO[] = [
+  {
+    name: 'Adidas Response CL Bad Bunny - Paso Fino',
+    description: 'Cómodo, duradero y atemporal. Es el número 1 por una razón.',
+    price: 380,
+    image:
+      'https://ciconceptstore.com/cdn/shop/files/adidas-response-cl-bad-bunny-paso-fino2.webp?v=1704397544&width=800',
+  },
+  {
+    name: 'Air Jordan Jumpman Jack TR Travis Scott University Red',
+    description:
+      'Un diseño icónico con un toque moderno, perfecto para cualquier ocasión.',
+    price: 650,
+    image:
+      'https://ciconceptstore.com/cdn/shop/files/01_5f669002-fad6-4290-8df0-13d433d9dd42.png?v=1736313987&width=700',
+  },
+  {
+    name: 'New Balance 2002R Protection Pack Black',
+    description:
+      'Un diseño elegante y versátil que combina comodidad y estilo para el día a día.',
+    price: 320,
+    image:
+      'https://ciconceptstore.com/cdn/shop/products/NewBalance2002RProtectionPackBlack1.png?v=1703947643&width=700',
+  },
+] as const;

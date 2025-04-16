@@ -1,16 +1,16 @@
 ---
 import User from '@/icons/User.astro';
 
-import CartPanel from './CartPanel.astro';
+import CartPanel from './CartPanel';
 
 const NAV_LINKS = [
   {
-    label: 'Catalogo',
-    href: '#catalogue',
-  },
-  {
     label: 'Novedades',
     href: '#news',
+  },
+  {
+    label: 'Catalogo',
+    href: '#catalogue',
   },
   {
     label: 'Mas Vendidos',
@@ -38,7 +38,7 @@ const NAV_LINKS = [
     }
   </nav>
   <div class="flex gap-4">
-    <CartPanel />
+    <!-- <CartPanel client:load /> -->
     <button>
       <a class="flex items-center gap-x-3 group" href=" #">
         <User
