@@ -8,11 +8,11 @@ import Search from '@/icons/Search.astro';
 ---
 
 <section id="catalogue" class="flex flex-col mx-16 mt-8">
-  <div class="flex justify-between mt-4">
+  <div class="hidden md:flex justify-between mt-4">
     <aside class="flex gap-4">
       {
         BUTTON_LABELS.map((button) => (
-          <button class="bg-light px-4 py-2 rounded-full text-lg text-primary hover:bg-primary hover:text-white transition cursor-pointer active:bg-primary">
+          <button class=" bg-light px-4 py-2 rounded-full text-lg text-primary hover:bg-primary hover:text-white transition cursor-pointer active:bg-primary">
             {button}
           </button>
         ))

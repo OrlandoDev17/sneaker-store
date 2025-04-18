@@ -1,7 +1,7 @@
 ---
 import User from '@/icons/User.astro';
 
-import CartPanel from './CartPanel';
+import CartPanel from './CartPanel.astro';
 
 const NAV_LINKS = [
   {
@@ -20,7 +20,7 @@ const NAV_LINKS = [
 ---
 
 <header
-  class="flex justify-between items-center py-3 mx-16 border-b-3 border-black/20"
+  class="hidden md:flex justify-between items-center py-3 mx-16 border-b-3 border-black/20"
 >
   <a href="/">
     <img class="w-64" src="/logo.svg" alt="Logo de SneakerStore" />
@@ -38,7 +38,7 @@ const NAV_LINKS = [
     }
   </nav>
   <div class="flex gap-4">
-    <!-- <CartPanel client:load /> -->
+    <CartPanel client:load />
     <button>
       <a class="flex items-center gap-x-3 group" href=" #">
         <User

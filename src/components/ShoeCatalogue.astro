@@ -4,11 +4,11 @@ import Star from '@/icons/Star.astro';
 import Plus from '@/icons/Plus.astro';
 ---
 
-<div class="grid grid-cols-4 my-12 gap-8">
+<div class="grid xl:grid-cols-3 2xl:grid-cols-4 my-12 gap-4 md:gap-8">
   {
     shoes.map((shoe) => (
       <article
-        class=" flex flex-col bg-light justify-center p-6 rounded-2xl gap-y-6 hover:-translate-y-4 hover:bg-primary group transition 
+        class=" flex flex-col bg-light justify-center  p-6 rounded-2xl gap-y-6 hover:-translate-y-4 hover:bg-primary group transition 
       cursor-pointer"
       >
         <a class="flex" href={`/shoes/${shoe.id}`}>
@@ -26,7 +26,7 @@ import Plus from '@/icons/Plus.astro';
           </picture>
           <div class="flex flex-col gap-2">
             <div class="flex justify-between">
-              <h2 class="font-semibold w-64 group-hover:text-white transition">
+              <h2 class="font-semibold w-62 md:w-64 group-hover:text-white transition">
                 {shoe.name}
               </h2>
               <button>
