@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import FiltersContainer from '@/components/FiltersContainer';
 import ShoeCatalogue from '@/components/ShoeCatalogue';
 import { shoes } from '@/consts/shoes';
+import { FiltersContext } from '@/context/filters';
 
-export default function Catalogue() {
-  const [filters, setFilters] = useState({
-    maker: 'Todos',
-  });
+function useFilters() {
+  // const [filters, setFilters] = useState({
+  //   maker: 'Todos',
+  // });
+
+  const filters = useContext(FiltersContext);
 
   const filterProducts = (products) => {
     return products.filter((product) => {
@@ -14,6 +17,11 @@ export default function Catalogue() {
     });
   };
 
+  return { filterProducts, setFilters };
+}
+
+export default function Catalogue() {
+  const { filterProducts, setFilters } = useFilters();
   const filteredProducts = filterProducts(shoes);
 
   return (
