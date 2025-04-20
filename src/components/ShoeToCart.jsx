@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Minus from '@/icons/Minus';
-import Plus from '@/icons/Plus';
+import { MinusIcon } from '@/icons/icons';
+import { PlusIcon } from '@/icons/icons';
 
 const SIZES = ['38', '40', '40.5', '41', '42', '42.5', '44', '44.5'];
 
@@ -46,14 +46,14 @@ export default function ShoeToCart({ shoe }) {
               className="bg-white p-2 rounded-xl cursor-pointer hover:bg-primary hover:text-white hover:-translate-y-1 transition"
               onClick={handleDecrement}
             >
-              <Minus className="size-8" />
+              <MinusIcon className="size-8" />
             </button>
             <span className="text-3xl font-rubik font-semibold">{count}</span>
             <button
               className="bg-white p-2 rounded-xl cursor-pointer hover:bg-primary hover:text-white hover:-translate-y-1 transition"
               onClick={handleIncrement}
             >
-              <Plus className="size-8" />
+              <PlusIcon className="size-8" />
             </button>
           </div>
         </div>
