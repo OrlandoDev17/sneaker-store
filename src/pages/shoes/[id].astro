@@ -1,8 +1,7 @@
 ---
-import Amount from '@/components/Amount';
 import { shoes } from '@/consts/shoes';
 import Layout from '@/layouts/Layout.astro';
-import AddToCart from '@/components/AddToCart.astro';
+import ShoeToCart from '@/components/ShoeToCart';
 
 export async function getStaticPaths() {
   return shoes.map((shoe) => ({
@@ -14,8 +13,6 @@ const { id } = Astro.params;
 
 const shoe = shoes.find((shoe) => shoe.id === id);
 if (!shoe) return Astro.redirect('/');
-
-const SIZES = ['38', '40', '40.5', '41', '42', '42.5', '44', '44.5'];
 ---
 
 <Layout>
@@ -53,62 +50,9 @@ const SIZES = ['38', '40', '40.5', '41', '42', '42.5', '44', '44.5'];
           transition:name={`shoe-image-${shoe.id}`}
         />
       </picture>
-      <aside class="flex flex-col gap-4 p-4">
-        <h4 class="text-primary/80 xl:text-lg 2xl:text-xl">{shoe.maker}</h4>
-        <h2 class="font-rubik text-3xl max-w-150 font-semibold">
-          {shoe.name}
-        </h2>
-        <h3 class="text-2xl font-rubik font-bold tracking-widest">
-          ${shoe.price}.00
-        </h3>
-        <div class="flex flex-col gap-4">
-          <p class="text-xl text-primary">Lista de Tallas</p>
-          <div class="flex gap-2" id="tallas">
-            {
-              SIZES.map((size) => (
-                <button
-                  data-size={size}
-                  class="bg-white size-8 xl:size-10 2xl:size-14 text-sm xl:text-lg 2xl:text-xl rounded-xl cursor-pointer focus:bg-primary focus:text-white focus:-translate-y-1
-                hover:bg-primary hover:text-white hover:-translate-y-1 transition"
-                >
-                  {size}
-                </button>
-              ))
-            }
-          </div>
-          <Amount client:load />
-          <AddToCart
-            client:load
-            producto={{
-              id: shoe.id,
-              name: shoe.name,
-              price: shoe.price,
-              images: shoe.images,
-            }}
-          />
-        </div>
-      </aside>
+      <ShoeToCart client:load shoe={shoe} />
     </div>
-  </article>
-</Layout>
 
-<script type="module" is:inline>
-  const botonesTallas = document.querySelectorAll('#tallas button');
-
-  botonesTallas.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const talla = btn.getAttribute('data-size');
-      localStorage.setItem('talla', talla);
-
-      // Quitamos Seleccion Anterior
-      botonesTallas.forEach((b) => {
-        b.classList.remove('bg-primary', 'text-white');
-        b.classList.add('bg-white', 'text-primary');
-      });
-
-      //Activamos el boton clickeado
-      btn.classList.add('bg-primary', 'text-white');
-      btn.classList.remove('bg-white', 'text-primary');
-    });
-  });
-</script>
+    <!--  -->
+  </article></Layout
+>
