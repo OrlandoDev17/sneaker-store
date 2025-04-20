@@ -13,7 +13,7 @@ export const shoes: Shoe[] = [
     name: 'Air Jordan 4 Retro OG SP Nigel Sylvester Brick by Brick',
     price: 500,
     rating: 4.5,
-    maker: 'Air Jordan',
+    maker: 'Jordan',
     images: [
       'https://ciconceptstore.com/cdn/shop/files/aj4_Brick_by_Brick.png?v=1741431997&width=700',
       'https://ciconceptstore.com/cdn/shop/files/aj4_Brick_by_Brick2.png?v=1741431997&width=700',
@@ -25,7 +25,7 @@ export const shoes: Shoe[] = [
     name: 'Air Jordan 1 Retro Low OG SP Travis Scott Velvet Brown',
     price: 580,
     rating: 4.8,
-    maker: 'Air Jordan',
+    maker: 'Jordan',
     images: [
       'https://ciconceptstore.com/cdn/shop/files/travis.png?v=1733575612&width=700',
     ],
@@ -35,7 +35,7 @@ export const shoes: Shoe[] = [
     name: 'Air Jordan 1 Retro Low OG SP Travis Scott Medium Olive',
     price: 750,
     rating: 4.6,
-    maker: 'Air Jordan',
+    maker: 'Jordan',
     images: [
       'https://ciconceptstore.com/cdn/shop/files/Jordan1RetroLowOGSP_TravisScottMediumOlive.png?v=1726833258&width=700',
       'https://ciconceptstore.com/cdn/shop/files/0001_AIR-JORDAN-1-RETRO-LOW-OG-SP-TRAVIS-SCOTT-MEDIUM-OLIVE.png?v=1726833258&width=700',
