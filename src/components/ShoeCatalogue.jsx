@@ -1,7 +1,10 @@
 import { PlusIcon } from '@/icons/icons';
 import { StarIcon } from '@/icons/icons';
+import { useCart } from '@/hooks/useCart';
 
 export default function ShoeCatalogue({ shoes }) {
+  // const { addToCart } = useCart();
+
   return (
     <div className="grid xl:grid-cols-3 2xl:grid-cols-4 my-12 gap-4 md:gap-8">
       {shoes.map((shoe) => (
@@ -24,7 +27,10 @@ export default function ShoeCatalogue({ shoes }) {
                 <h2 className="font-semibold w-62 md:w-64 group-hover:text-white transition">
                   {shoe.name}
                 </h2>
-                <button className="inline-flex rounded-full items-center justify-center">
+                <button
+                  onClick={() => addToCart(shoe)}
+                  className="inline-flex rounded-full items-center justify-center"
+                >
                   <PlusIcon className="bg-white size-12 p-2 rounded-full cursor-pointer" />
                 </button>
               </div>
