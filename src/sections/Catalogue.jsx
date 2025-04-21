@@ -5,11 +5,9 @@ import { shoes } from '@/consts/shoes';
 import { FiltersContext } from '@/context/filters';
 
 function useFilters() {
-  // const [filters, setFilters] = useState({
-  //   maker: 'Todos',
-  // });
-
-  const filters = useContext(FiltersContext);
+  const [filters, setFilters] = useState({
+    maker: 'Todos',
+  });
 
   const filterProducts = (products) => {
     return products.filter((product) => {
