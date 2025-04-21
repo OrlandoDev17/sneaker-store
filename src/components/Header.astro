@@ -1,7 +1,7 @@
 ---
 import User from '@/icons/User.astro';
 
-import CartPanel from './CartPanel.astro';
+import Cart from './Cart';
 
 const NAV_LINKS = [
   {
@@ -38,7 +38,7 @@ const NAV_LINKS = [
     }
   </nav>
   <div class="flex gap-4">
-    <CartPanel client:load />
+    <Cart client:load />
     <button>
       <a class="flex items-center gap-x-3 group" href=" #">
         <User
