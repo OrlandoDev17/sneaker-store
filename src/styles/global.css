@@ -25,3 +25,11 @@
 @utility mask-fade-top-bottom {
   mask-image: linear-gradient(transparent, black 10% 90%, transparent 100%);
 }
+
+.cart {
+  display: none;
+}
+
+.cart-button ~ input:checked ~ .cart {
+  display: block;
+}

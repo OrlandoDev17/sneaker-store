@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import FiltersContainer from '@/components/FiltersContainer';
 import ShoeCatalogue from '@/components/ShoeCatalogue';
 import { shoes } from '@/consts/shoes';
-import { FiltersContext } from '@/context/filters';
 
 function useFilters() {
   const [filters, setFilters] = useState({
