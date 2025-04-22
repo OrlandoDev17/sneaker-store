@@ -7,7 +7,6 @@ import '@fontsource-variable/montserrat';
 import '@fontsource-variable/rubik';
 
 import ClientRouter from 'astro/components/ClientRouter.astro';
-import { CartProvider } from '@/context/cart';
 ---
 
 <!doctype html>
@@ -19,13 +18,11 @@ import { CartProvider } from '@/context/cart';
     <title>SneakerStore | La mejor web de venta de Sneakers</title>
   </head>
   <body>
-    <CartProvider>
-      <Header />
-      <main class="flex flex-col items-center justify-center h-auto">
-        <slot />
-      </main>
-      <Footer />
-    </CartProvider>
+    <Header />
+    <main class="flex flex-col items-center justify-center h-auto">
+      <slot />
+    </main>
+    <Footer />
   </body>
   <ClientRouter />
 </html>
