@@ -49,7 +49,9 @@ export default function ShoeCatalogue({ shoes }) {
                   </h2>
                   <button
                     onClick={(event) => handleCartAction(event, shoe)}
-                    className="add-to-cart relative inline-flex rounded-full items-center justify-center bg-white size-14 p-3 cursor-pointer hover:scale-125 transition"
+                    className={`add-to-cart relative inline-flex rounded-full items-center justify-center bg-white size-14 p-3 cursor-pointer hover:scale-125 transition ${
+                      isProductInCart ? 'added' : ''
+                    }`}
                   >
                     {isProductInCart ? (
                       <RemoveFromCartIcon className="size-10" />
