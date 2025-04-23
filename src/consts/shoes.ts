@@ -100,6 +100,53 @@ export const shoes: Shoe[] = [
       'https://ciconceptstore.com/cdn/shop/files/Copia-de-Diseno-sin-titulo-_3.webp?v=1719061060&width=800',
     ],
   },
+  {
+    id: 'nike-sb-dunk-low-rayssa-leal',
+    name: 'Nike SB Dunk Low Rayssa Leal',
+    price: 250,
+    rating: 4.2,
+    maker: 'Nike',
+    images: [
+      'https://ciconceptstore.com/cdn/shop/files/Nike_SB_Dunk_Low_Rayssa_Leal3.webp?v=1719658004&width=800',
+      'https://ciconceptstore.com/cdn/shop/files/Nike_SB_Dunk_Low_Rayssa_Leal2.webp?v=1719658004&width=500',
+      'https://ciconceptstore.com/cdn/shop/files/Nike_SB_Dunk_Low_Rayssa_Leal1.webp?v=1719658004&width=500',
+    ],
+  },
+  {
+    id: 'nike-zoom-field-jaxx',
+    name: 'Nike Zoom Field Jaxx Travis Scott Light Chocolate',
+    price: 300,
+    rating: 4.0,
+    maker: 'Nike',
+    images: [
+      'https://ciconceptstore.com/cdn/shop/files/01_b3df2df5-7d35-46e3-affa-09fc2a0df79e.png?v=1736975974&width=700',
+      'https://ciconceptstore.com/cdn/shop/files/02_67d1c37b-f7db-4401-a5b9-f495bb9439da.png?v=1736975974&width=700',
+    ],
+  },
+  {
+    id: 'air-jordan-4-retro-sb-navy',
+    name: 'Air Jordan 4 Retro SB Navy',
+    price: 370,
+    rating: 4.5,
+    maker: 'Jordan',
+    images: [
+      'https://ciconceptstore.com/cdn/shop/files/Air_Jordan_4_Retro_SB_Navy_3.png?v=1744449981&width=700',
+      'https://ciconceptstore.com/cdn/shop/files/Air_Jordan_4_Retro_SB_Navy_2.png?v=1744449981&width=700',
+      'https://ciconceptstore.com/cdn/shop/files/Air_Jordan_4_Retro_SB_Navy_1.png?v=1744449981&width=700',
+    ],
+  },
+  {
+    id: 'nike-dunk-low-light-iron-ore',
+    name: 'Nike Dunk Low - Light Iron Ore',
+    price: 220,
+    rating: 4.1,
+    maker: 'Nike',
+    images: [
+      'https://ciconceptstore.com/cdn/shop/files/Nike_Dunk_Low_Light_Iron_Ore1.webp?v=1719652584&width=800',
+      'https://ciconceptstore.com/cdn/shop/files/Nike_Dunk_Low_Light_Iron_Ore2.webp?v=1719652584&width=800',
+      'https://ciconceptstore.com/cdn/shop/files/Nike_Dunk_Low_Light_Iron_Ore3.webp?v=1719652584&width=800',
+    ],
+  },
 ] as const;
 
 interface SHOES_INFO {
