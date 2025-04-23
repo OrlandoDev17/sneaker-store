@@ -26,12 +26,26 @@
   mask-image: linear-gradient(transparent, black 10% 90%, transparent 100%);
 }
 
+.blur-bg {
+  filter: blur(5px);
+  pointer-events: none;
+  transition: filter 0.3s ease-in-out;
+}
+
 .cart {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(50%);
+  pointer-events: auto;
+  border-radius: 15px 0 0 15px;
+  filter: none !important;
+  transition: all 0.5s;
 }
 
 .cart-button ~ input:checked ~ .cart {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 .add-to-cart::after {

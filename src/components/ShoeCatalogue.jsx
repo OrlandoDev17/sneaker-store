@@ -54,9 +54,9 @@ export default function ShoeCatalogue({ shoes }) {
                     }`}
                   >
                     {isProductInCart ? (
-                      <RemoveFromCartIcon className="size-10" />
+                      <RemoveFromCartIcon className="size-10 text-red-500" />
                     ) : (
-                      <AddToCartIcon className="size-10" />
+                      <AddToCartIcon className="size-10 text-green-500" />
                     )}
                   </button>
                 </div>

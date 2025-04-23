@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { MinusIcon } from '@/icons/icons';
 import { PlusIcon } from '@/icons/icons';
 
+import { useStore } from '@nanostores/react';
+import { cartStore, addToCart } from '@/stores/cartStore';
+
 const SIZES = ['38', '40', '40.5', '41', '42', '42.5', '44', '44.5'];
 
 export default function ShoeToCart({ shoe }) {
@@ -16,6 +19,17 @@ export default function ShoeToCart({ shoe }) {
   const handleDecrement = () => {
     if (count > 0) {
       setCount(count - 1);
+    }
+  };
+
+  const cart = useStore(cartStore);
+
+  const handleCartAction = (event, shoe) => {
+    event.preventDefault();
+    if (checkProductInCart(shoe)) {
+      RemoveFromCart(shoe);
+    } else {
+      addToCart(shoe);
     }
   };
 
@@ -58,7 +72,10 @@ export default function ShoeToCart({ shoe }) {
           </div>
         </div>
         <div className="w-full flex items-center justify-center mt-4">
-          <button className="bg-blue-500 text-white w-full py-4 rounded-xl text-xl font-bold cursor-pointer hover:bg-blue-700 hover:-translate-y-1 transition">
+          <button
+            onClick={(event) => handleCartAction(event, shoe)}
+            className="bg-blue-500 text-white w-full py-4 rounded-xl text-xl font-bold cursor-pointer hover:bg-blue-700 hover:-translate-y-1 transition"
+          >
             Agregar al carrito
           </button>
         </div>
