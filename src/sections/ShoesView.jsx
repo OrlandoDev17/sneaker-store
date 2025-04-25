@@ -1,24 +1,35 @@
+import { useState, useEffect } from 'react';
 import { SHOES_INFO } from '@/consts/shoes';
 import { useStore } from '@nanostores/react';
 import { cartStore, addToCart } from '@/stores/cartStore';
-import { useEffect } from 'react';
 
 export default function ShoesView() {
   const cart = useStore(cartStore);
+  const [currentIndex, setCurrentIndex] = useState(0); // Estado para el índice actual
 
-  const handleCart = (shoe) => {
-    const existingItem = cart.find((item) => item.id === shoe.id);
+  const handleCart = () => {
+    const selectedShoe = SHOES_INFO[currentIndex]; // Obtener el zapato actual
+
+    // Depuración: Mostrar el zapato seleccionado
+    console.log('Producto seleccionado:', selectedShoe);
+
+    const existingItem = cart.find((item) => item.id === selectedShoe.id);
+
     if (existingItem) {
-      addToCart({ ...shoe, quantity: existingItem.quantity + 1 });
+      // Si ya existe en el carrito, aumentar la cantidad
+      addToCart({ ...selectedShoe, quantity: existingItem.quantity + 1 });
     } else {
-      addToCart({ ...shoe, quantity: 1 });
+      // Si no existe, agregarlo con cantidad 1
+      addToCart({ ...selectedShoe, quantity: 1 });
     }
+
+    // Depuración: Mostrar el estado del carrito
+    console.log('Estado del carrito:', cart);
   };
 
   useEffect(() => {
     const slides = document.querySelectorAll('#slider-container .slide');
     const buttons = document.querySelectorAll('#slider-buttons .slider-button');
-    let currentIndex = 0;
 
     // Función para mostrar un slide específico
     function showSlide(index) {
@@ -32,14 +43,7 @@ export default function ShoesView() {
 
     // Función para avanzar al siguiente slide
     function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    // Función para retroceder al slide anterior
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length); // Actualizar el índice
     }
 
     // Cambiar automáticamente cada 3 segundos
@@ -48,8 +52,7 @@ export default function ShoesView() {
     // Eventos para los botones
     buttons.forEach((button, index) => {
       button.addEventListener('click', () => {
-        currentIndex = index;
-        showSlide(currentIndex);
+        setCurrentIndex(index); // Actualizar el índice
       });
     });
 
@@ -57,7 +60,7 @@ export default function ShoesView() {
     return () => {
       clearInterval(interval);
       buttons.forEach((button) => {
-        button.replaceWith(button.cloneNode(true)); // Elimina los event listeners
+        button.replaceWith(button.cloneNode(true)); // Eliminar event listeners
       });
     };
   }, []);
@@ -75,7 +78,7 @@ export default function ShoesView() {
           <article
             key={shoe.id}
             className={`slide flex flex-col md:flex-row items-center justify-center absolute inset-0 opacity-0 translate-x-[100%] transition duration-500 active:opacity-100 active:translate-x-0 ${
-              index === 0 ? 'active' : ''
+              index === currentIndex ? 'active' : ''
             }`}
             data-index={index}
           >
@@ -94,7 +97,7 @@ export default function ShoesView() {
                   $ {shoe.price}.00
                 </h3>
                 <button
-                  onClick={() => handleCart(shoe)}
+                  onClick={handleCart}
                   className="add bg-orange-500 px-4 py-2 rounded-xl text-xl text-white font-semibold hover:bg-orange-700 hover:scale-110 transition cursor-pointer"
                 >
                   Añadir al Carrito
@@ -110,7 +113,7 @@ export default function ShoesView() {
           <button
             key={index}
             className={`slider-button size-4 bg-black/50 cursor-pointer active:bg-blue-500 rounded-full ${
-              index === 0 ? 'active' : ''
+              index === currentIndex ? 'active' : ''
             }`}
             data-index={index}
             aria-label={`ir al slide ${index}`}

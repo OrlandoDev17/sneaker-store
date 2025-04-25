@@ -150,6 +150,7 @@ export const shoes: Shoe[] = [
 ] as const;
 
 interface SHOES_INFO {
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -158,6 +159,7 @@ interface SHOES_INFO {
 
 export const SHOES_INFO: SHOES_INFO[] = [
   {
+    id: 'adidas-response-cl-bad-bunny-paso-fino',
     name: 'Adidas Response CL Bad Bunny - Paso Fino',
     description: 'Cómodo, duradero y atemporal. Es el número 1 por una razón.',
     price: 380,
@@ -166,6 +168,7 @@ export const SHOES_INFO: SHOES_INFO[] = [
     ],
   },
   {
+    id: 'air-jordan-jumpman-jack-tr-travis-scott-university-red',
     name: 'Air Jordan Jumpman Jack TR Travis Scott University Red',
     description:
       'Un diseño icónico con un toque moderno, perfecto para cualquier ocasión.',
@@ -175,6 +178,7 @@ export const SHOES_INFO: SHOES_INFO[] = [
     ],
   },
   {
+    id: 'new-balance-2002r-protection-pack-black',
     name: 'New Balance 2002R Protection Pack Black',
     description:
       'Un diseño elegante y versátil que combina comodidad y estilo para el día a día.',
