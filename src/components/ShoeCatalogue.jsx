@@ -39,7 +39,7 @@ export default function ShoeCatalogue({ shoes }) {
                   className="h-64 object-contain"
                   src={shoe.images[0]}
                   alt={`Imagen del zapato ${shoe.name}`}
-                  transitionName={`shoe-image-${shoe.id}`}
+                  transitionname={`shoe-image-${shoe.id}`}
                 />
               </picture>
               <div className="flex flex-col gap-2">
