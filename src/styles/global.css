@@ -42,6 +42,19 @@
   transition: all 0.5s;
 }
 
+.cart div::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cart div::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.cart div::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 .cart-button ~ input:checked ~ .cart {
   opacity: 1;
   visibility: visible;
