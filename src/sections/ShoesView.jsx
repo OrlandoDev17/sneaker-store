@@ -10,9 +10,6 @@ export default function ShoesView() {
   const handleCart = () => {
     const selectedShoe = SHOES_INFO[currentIndex]; // Obtener el zapato actual
 
-    // Depuración: Mostrar el zapato seleccionado
-    console.log('Producto seleccionado:', selectedShoe);
-
     const existingItem = cart.find((item) => item.id === selectedShoe.id);
 
     if (existingItem) {
@@ -22,9 +19,6 @@ export default function ShoesView() {
       // Si no existe, agregarlo con cantidad 1
       addToCart({ ...selectedShoe, quantity: 1 });
     }
-
-    // Depuración: Mostrar el estado del carrito
-    console.log('Estado del carrito:', cart);
   };
 
   useEffect(() => {
