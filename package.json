@@ -22,5 +22,8 @@
     "react-dom": "^19.1.0",
     "swiper": "^11.2.6",
     "tailwindcss": "^4.1.3"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }

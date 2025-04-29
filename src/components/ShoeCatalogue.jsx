@@ -1,29 +1,39 @@
+import { useState, useEffect } from 'react';
+
 import { StarIcon, AddToCartIcon, RemoveFromCartIcon } from '@/icons/icons';
 
 import { useStore } from '@nanostores/react';
-import { cartStore, addToCart, RemoveFromCart } from '@/stores/cartStore';
+import { cartStore, addToCart, removeFromCart } from '@/stores/cartStore';
 
 export default function ShoeCatalogue({ shoes }) {
+  const [inCartMap, setInCartMap] = useState({});
   const cart = useStore(cartStore);
 
-  const checkProductInCart = (shoe) => {
-    return cart.some((item) => item.id === shoe.id);
-  };
+  useEffect(() => {
+    const newInCartMap = {};
+    shoes.forEach((shoe) => {
+      newInCartMap[shoe.id] = cart.some((item) => item.id === shoe.id);
+    });
+    setInCartMap(newInCartMap);
+  }, [cart]);
 
-  const handleCartAction = (event, shoe) => {
-    event.preventDefault();
-    if (checkProductInCart(shoe)) {
-      RemoveFromCart(shoe);
+  const handleCartAction = (e, shoe) => {
+    e.preventDefault();
+    if (inCartMap[shoe.id]) {
+      removeFromCart(shoe.id);
     } else {
-      addToCart(shoe);
+      addToCart({ ...shoe, quantity: 1 }); // Se añade con cantidad 1
     }
+
+    setInCartMap((prev) => ({
+      ...prev,
+      [shoe.id]: !prev[shoe.id],
+    }));
   };
 
   return (
     <div className="grid xl:grid-cols-3 2xl:grid-cols-4 my-12 gap-4 md:gap-8">
       {shoes.map((shoe) => {
-        const isProductInCart = checkProductInCart(shoe);
-
         return (
           <article
             key={shoe.id}
@@ -50,10 +60,10 @@ export default function ShoeCatalogue({ shoes }) {
                   <button
                     onClick={(event) => handleCartAction(event, shoe)}
                     className={`add-to-cart relative inline-flex rounded-full items-center justify-center bg-white size-14 p-3 cursor-pointer hover:scale-125 transition ${
-                      isProductInCart ? 'added' : ''
+                      inCartMap[shoe.id] ? 'added' : ''
                     }`}
                   >
-                    {isProductInCart ? (
+                    {inCartMap[shoe.id] ? (
                       <RemoveFromCartIcon className="size-10 text-red-500" />
                     ) : (
                       <AddToCartIcon className="size-10 text-green-500" />

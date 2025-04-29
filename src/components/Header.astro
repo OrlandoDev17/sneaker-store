@@ -1,7 +1,7 @@
 ---
 import User from '@/icons/User.astro';
 
-import Cart from './Cart';
+import { Cart } from '@/components/Cart.jsx';
 
 const NAV_LINKS = [
   {
@@ -12,15 +12,11 @@ const NAV_LINKS = [
     label: 'Catalogo',
     href: '#catalogue',
   },
-  {
-    label: 'Mas Vendidos',
-    href: '/mas-vendidos',
-  },
 ];
 ---
 
 <header
-  class="hidden md:flex justify-between items-center py-3 mx-16 border-b-3 border-black/20"
+  class="hidden fixed z-10 w-full md:flex justify-between items-center py-3 p-16 border-b-3 border-black/20 backdrop-blur-2xl"
 >
   <a href="/">
     <img class="w-64" src="/logo.svg" alt="Logo de SneakerStore" />
@@ -44,9 +40,6 @@ const NAV_LINKS = [
         <User
           class="size-14 border-2 p-2 rounded-full inline-block hover:border-blue-500 group-hover:text-blue-500 hover:scale-110 transition"
         />
-        <p class="text-xl font-semibold group-hover:text-blue-500 transition">
-          Orlando
-        </p>
       </a>
     </button>
   </div>

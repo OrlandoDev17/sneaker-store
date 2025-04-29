@@ -24,12 +24,11 @@ export default function ShoeToCart({ shoe }) {
 
   const cart = useStore(cartStore);
 
-  const handleCartAction = (event, shoe) => {
-    event.preventDefault();
-    if (checkProductInCart(shoe)) {
-      RemoveFromCart(shoe);
-    } else {
-      addToCart(shoe);
+  const handleAdd = (shoe) => {
+    if (count > 0) {
+      addToCart({ ...shoe, quantity: count });
+      // Redirigir a la pagina de inicio
+      window.location.href = '/';
     }
   };
 
@@ -73,8 +72,13 @@ export default function ShoeToCart({ shoe }) {
         </div>
         <div className="w-full flex items-center justify-center mt-4">
           <button
-            onClick={(event) => handleCartAction(event, shoe)}
-            className="bg-blue-500 text-white w-full py-4 rounded-xl text-xl font-bold cursor-pointer hover:bg-blue-700 hover:-translate-y-1 transition"
+            onClick={() => handleAdd(shoe)}
+            disabled={count === 0}
+            className={`bg-blue-500 text-white w-full py-4 rounded-xl text-xl font-bold cursor-pointer transition ${
+              count === 0
+                ? 'opacity-50 cursor-not-allowed'
+                : 'hover:bg-blue-700 hover:-translate-y-1'
+            }`}
           >
             Agregar al carrito
           </button>
