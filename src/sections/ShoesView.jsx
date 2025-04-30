@@ -66,12 +66,12 @@ export default function ShoesView() {
     >
       <div
         id="slider-container"
-        className="flex items-center justify-center relative w-full h-150 md:h-175 overflow-hidden"
+        className="flex items-center justify-center relative w-full h-200 lg:h-175 overflow-hidden"
       >
         {SHOES_INFO.map((shoe, index) => (
           <article
             key={shoe.id}
-            className={`slide flex flex-col md:flex-row items-center justify-center absolute inset-0 opacity-0 translate-x-[100%] transition duration-500 active:opacity-100 active:translate-x-0 ${
+            className={`slide flex flex-col lg:flex-row items-center justify-center absolute inset-0 opacity-0 translate-x-[100%] transition duration-500 active:opacity-100 active:translate-x-0 ${
               index === currentIndex ? 'active' : ''
             }`}
             data-index={index}

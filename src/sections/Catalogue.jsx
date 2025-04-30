@@ -1,30 +1,30 @@
-import { useState } from 'react';
-import FiltersContainer from '@/components/FiltersContainer';
-import ShoeCatalogue from '@/components/ShoeCatalogue';
-import { shoes } from '@/consts/shoes';
+import { useState } from 'react'
+import FiltersContainer from '@/components/FiltersContainer'
+import ShoeCatalogue from '@/components/ShoeCatalogue'
+import { shoes } from '@/consts/shoes'
 
-function useFilters() {
+function useFilters () {
   const [filters, setFilters] = useState({
-    maker: 'Todos',
-  });
+    maker: 'Todos'
+  })
 
   const filterProducts = (products) => {
     return products.filter((product) => {
-      return filters.maker === 'Todos' || product.maker === filters.maker;
-    });
-  };
+      return filters.maker === 'Todos' || product.maker === filters.maker
+    })
+  }
 
-  return { filterProducts, setFilters };
+  return { filterProducts, setFilters }
 }
 
-export default function Catalogue() {
-  const { filterProducts, setFilters } = useFilters();
-  const filteredProducts = filterProducts(shoes);
+export default function Catalogue () {
+  const { filterProducts, setFilters } = useFilters()
+  const filteredProducts = filterProducts(shoes)
 
   return (
-    <section id="catalogue" className="flex flex-col mx-16 mt-8">
+    <section id='catalogue' className='flex flex-col mx-16 mt-8'>
       <FiltersContainer changeFilters={setFilters} />
       <ShoeCatalogue shoes={filteredProducts} />
     </section>
-  );
+  )
 }

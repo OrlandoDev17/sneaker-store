@@ -33,8 +33,8 @@ export function Cart() {
         className="cart-button relative flex items-center justify-center"
         htmlFor={cartCheckboxId}
       >
-        <CartIcon className="size-14 border-2 p-2 rounded-full inline-block cursor-pointer hover:border-blue-500 hover:text-blue-500 hover:scale-110 transition" />
-        <span className="absolute top-0 -right-2 bg-red-500 text-white text-base font-semibold px-2 rounded-full">
+        <CartIcon className="size-10 md:size-14 border-2 p-1 md:p-2 rounded-full inline-block cursor-pointer hover:border-blue-500 hover:text-blue-500 hover:scale-110 transition" />
+        <span className="absolute top-2 md:top-0 -right-2 bg-red-500 text-white text-xs md:text-base font-semibold px-2 rounded-full">
           {cart.length}
         </span>
       </label>
@@ -47,7 +47,7 @@ export function Cart() {
       />
 
       {/* Contenedor del carrito */}
-      <aside className="cart flex flex-col items-center p-4 absolute h-[89vh] w-100 top-25 right-0 z-10 bg-primary text-white">
+      <aside className="cart flex flex-col items-center p-4 absolute h-[89vh] w-100 top-20 md:top-25 right-0 z-10 bg-primary text-white">
         <div className="flex items-center gap-2">
           <label htmlFor={cartCheckboxId}>
             <XIcon className="stroke-2 size-8 cursor-pointer hover:text-red-500 hover:scale-125 transition" />

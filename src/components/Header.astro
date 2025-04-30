@@ -1,7 +1,6 @@
 ---
-import User from '@/icons/User.astro';
-
 import { Cart } from '@/components/Cart.jsx';
+import Search from '@/icons/Search.astro';
 
 const NAV_LINKS = [
   {
@@ -16,16 +15,20 @@ const NAV_LINKS = [
 ---
 
 <header
-  class="hidden fixed z-10 w-full md:flex justify-between items-center py-3 p-16 border-b-3 border-black/20 backdrop-blur-2xl"
+  class="fixed top-0 z-10 w-full flex justify-between items-center py-2 lg:py-3 px-6 sm:px-10 lg:px-16 border-b-3 border-black/20 backdrop-blur-2xl"
 >
   <a href="/">
-    <img class="w-64" src="/logo.svg" alt="Logo de SneakerStore" />
+    <img
+      class="w-32 sm:w-48 lg:w-64"
+      src="/logo.svg"
+      alt="Logo de SneakerStore"
+    />
   </a>
-  <nav class="flex gap-x-16">
+  <nav class="flex gap-x-2 sm:gap-x-6 lg:gap-x-16">
     {
       NAV_LINKS.map((link) => (
         <a
-          class="uppercase font-rubik font-semibold tracking-wide text-2xl inline-block hover:text-blue-500 hover:scale-110 transition"
+          class="uppercase font-rubik font-semibold tracking-wide text-base sm:text-xl lg:text-2xl inline-block hover:text-blue-500 hover:scale-110 transition"
           href={link.href}
         >
           {link.label}
@@ -37,8 +40,8 @@ const NAV_LINKS = [
     <Cart client:load />
     <button>
       <a class="flex items-center gap-x-3 group" href=" #">
-        <User
-          class="size-14 border-2 p-2 rounded-full inline-block hover:border-blue-500 group-hover:text-blue-500 hover:scale-110 transition"
+        <Search
+          class="size-10 md:size-14 border-2 p-1 md:p-2 rounded-full inline-block hover:border-blue-500 group-hover:text-blue-500 hover:scale-110 transition"
         />
       </a>
     </button>

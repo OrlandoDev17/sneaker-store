@@ -32,7 +32,7 @@ export default function ShoeCatalogue({ shoes }) {
   };
 
   return (
-    <div className="grid xl:grid-cols-3 2xl:grid-cols-4 my-12 gap-4 md:gap-8">
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 my-12 gap-4 md:gap-8">
       {shoes.map((shoe) => {
         return (
           <article
