@@ -1,6 +1,5 @@
 ---
 import { Cart } from '@/components/Cart.jsx';
-import Search from '@/icons/Search.astro';
 
 const NAV_LINKS = [
   {
@@ -38,12 +37,5 @@ const NAV_LINKS = [
   </nav>
   <div class="flex gap-4">
     <Cart client:load />
-    <button>
-      <a class="flex items-center gap-x-3 group" href=" #">
-        <Search
-          class="size-10 md:size-14 border-2 p-1 md:p-2 rounded-full inline-block hover:border-blue-500 group-hover:text-blue-500 hover:scale-110 transition"
-        />
-      </a>
-    </button>
   </div>
 </header>

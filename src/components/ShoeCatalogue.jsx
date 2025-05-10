@@ -1,35 +1,9 @@
-import { useState, useEffect } from 'react';
-
 import { StarIcon, AddToCartIcon, RemoveFromCartIcon } from '@/icons/icons';
 
-import { useStore } from '@nanostores/react';
-import { cartStore, addToCart, removeFromCart } from '@/stores/cartStore';
+import { useCartMap } from '@/hooks/useCartMap';
 
 export default function ShoeCatalogue({ shoes }) {
-  const [inCartMap, setInCartMap] = useState({});
-  const cart = useStore(cartStore);
-
-  useEffect(() => {
-    const newInCartMap = {};
-    shoes.forEach((shoe) => {
-      newInCartMap[shoe.id] = cart.some((item) => item.id === shoe.id);
-    });
-    setInCartMap(newInCartMap);
-  }, [cart]);
-
-  const handleCartAction = (e, shoe) => {
-    e.preventDefault();
-    if (inCartMap[shoe.id]) {
-      removeFromCart(shoe.id);
-    } else {
-      addToCart({ ...shoe, quantity: 1 }); // Se añade con cantidad 1
-    }
-
-    setInCartMap((prev) => ({
-      ...prev,
-      [shoe.id]: !prev[shoe.id],
-    }));
-  };
+  const { inCartMap, handleCartAction } = useCartMap(shoes);
 
   return (
     <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 my-12 gap-4 md:gap-8">

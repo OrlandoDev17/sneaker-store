@@ -1,30 +1,33 @@
-import { useState } from 'react'
-import FiltersContainer from '@/components/FiltersContainer'
-import ShoeCatalogue from '@/components/ShoeCatalogue'
-import { shoes } from '@/consts/shoes'
+import FiltersContainer from '@/components/FiltersContainer';
+import ShoeCatalogue from '@/components/ShoeCatalogue';
+import { shoes } from '@/consts/shoes';
 
-function useFilters () {
-  const [filters, setFilters] = useState({
-    maker: 'Todos'
-  })
+import { useFilters } from '@/hooks/useFilters';
 
-  const filterProducts = (products) => {
-    return products.filter((product) => {
-      return filters.maker === 'Todos' || product.maker === filters.maker
-    })
-  }
+import { useStore } from '@nanostores/react';
+import { searchStore } from '@/stores/searchStore';
 
-  return { filterProducts, setFilters }
-}
+export default function Catalogue() {
+  const { filterProducts, setFilters } = useFilters();
 
-export default function Catalogue () {
-  const { filterProducts, setFilters } = useFilters()
-  const filteredProducts = filterProducts(shoes)
+  const search = useStore(searchStore);
+
+  const searchFilteredProducts = shoes.filter((shoe) =>
+    shoe.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const filteredProducts = filterProducts(searchFilteredProducts);
 
   return (
-    <section id='catalogue' className='flex flex-col mx-16 mt-8'>
+    <section id="catalogue" className="flex flex-col mx-16 mt-8">
       <FiltersContainer changeFilters={setFilters} />
-      <ShoeCatalogue shoes={filteredProducts} />
+      {filteredProducts.length > 0 ? (
+        <ShoeCatalogue shoes={filteredProducts} />
+      ) : (
+        <p className="text-center text-gray-500 mt-4">
+          No se encontraron resultados.
+        </p>
+      )}
     </section>
-  )
+  );
 }
